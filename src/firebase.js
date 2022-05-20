@@ -1,8 +1,6 @@
 import {initializeApp} from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
-import { useEffect, useState } from "react";
 
 
 const firebaseConfig = {
@@ -14,7 +12,7 @@ const firebaseConfig = {
     appId: "1:741732086961:web:989e157ac33743f22a1e90"
   };
 
-const App = initializeApp(firebaseConfig);
+  initializeApp(firebaseConfig);
 
 
 
