@@ -1,0 +1,9 @@
+.linked__body {
+    display: flex;
+    margin:35px;
+    max-width:1200px;
+    margin-left: auto;
+    gap: 50px;
+}
+
+ 
