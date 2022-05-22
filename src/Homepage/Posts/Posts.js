@@ -25,6 +25,12 @@ function Posts({value, name , description , message }) {
   const handleEdit = async (id) => {
   const message = prompt("Enter post mesage") ;
 
+  if(message.length === 0) {
+    message = "";
+  }
+
+  
+
   const docRef = doc(db, "posts", id);
   const payload = { name, description , message };
 
@@ -37,6 +43,7 @@ function Posts({value, name , description , message }) {
                     <div className="post__info">
                     <h2 >{name}</h2>
                     <p>{description}</p>
+                    
 
                     </div>
                     </div>
@@ -48,19 +55,19 @@ function Posts({value, name , description , message }) {
 
     <div className="post__buttons">
       <div className="inputoptions">
-          <ThumbUpIcon style ={{color: "gray"}}/>
+          <ThumbUpIcon className='icon-color'/>
            <h4>like</h4>   
       </div>
       <div className="inputoptions">
-          <ChatIcon style ={{color: "gray"}}/>
+          <ChatIcon className='icon-color'/>
            <h4>comment</h4>   
       </div>
       <div className="inputoptions" onClick={() => handleEdit(value)}>
-          <EditIcon style ={{color: "gray"}}/>
+          <EditIcon className='icon-color'/>
            <h4>Edit</h4>   
       </div>
       <div className="inputoptions" onClick={() => handleDelete(value)}>
-          <DeleteIcon style ={{color: "gray"}}/>
+          <DeleteIcon className='icon-color'/>
            <h4>Delete</h4>   
       </div>
     </div>
