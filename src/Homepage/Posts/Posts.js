@@ -3,10 +3,8 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ChatIcon from '@mui/icons-material/Chat';
 import EditIcon from '@mui/icons-material/Edit';
-import InputOptions from '../InputOptions/InputOptions';
 import Avatar from '@mui/material/Avatar';
 import "./Posts.css"
-import uuid from 'react-uuid'
 
 import {
   doc,
@@ -37,8 +35,8 @@ function Posts({value, name , description , message }) {
             <div className="post__headr">
                     <Avatar />
                     <div className="post__info">
-                    <h2 onClick={() => {console.log("hapening")}}>{name}</h2>
-                    <p onClick={() => {console.log("hapening", value)}}>{description}</p>
+                    <h2 >{name}</h2>
+                    <p>{description}</p>
 
                     </div>
                     </div>
