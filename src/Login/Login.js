@@ -71,6 +71,7 @@ const register = () => {
                Register Now
     </span>
 </p>
+<Button type='submit' onClick={logintapp}></Button>
 
 
 </div>
