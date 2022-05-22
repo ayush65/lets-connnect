@@ -29,10 +29,13 @@
     margin-bottom: 10px;
     border-radius: 5px;
 }
-
+.btn-login{
+    background-color: #0074b1;
+    color: black;
+}
 
 .login > form > button {
-    width: 365px;
+    width: 22.813rem;
     height: 50px;
     font-size: large;
     color: #fff;

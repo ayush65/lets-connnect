@@ -66,14 +66,13 @@ const sendpost = async (e)  =>  {
    {posts.map(({ id , data : { name , description , message , photoUrl}})  =>  (
                                        
                                        <Posts
-                                       key={id}
+                                       id={id}
                                        name={name}
+                                       value={id}
                                        description={description}
                                        message={message}
                                        photoUrl={photoUrl}/>
                              ))}
-
-   <Posts   name="Ayush Prakash" description="great" message="i am cool"/>
    </div>
   )
 }

@@ -1,20 +1,50 @@
 import React from 'react'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import SendIcon from '@mui/icons-material/Send';
+import DeleteIcon from '@mui/icons-material/Delete';
 import ChatIcon from '@mui/icons-material/Chat';
-import ShareIcon from '@mui/icons-material/Share';
-import InputOptions from '../InputOptions/InputOptions';
+import EditIcon from '@mui/icons-material/Edit';
 import Avatar from '@mui/material/Avatar';
 import "./Posts.css"
 
-function Posts({ name , description , message }) {
+import {
+  doc,
+  deleteDoc,
+  setDoc
+} from "firebase/firestore";
+
+import db  from "../../firebase"
+
+function Posts({value, name , description , message }) {
+
+  const handleDelete = async (idle) => {
+    const docRef = doc(db, "posts", idle);
+    await deleteDoc(docRef);
+  };
+
+  
+  const handleEdit = async (id) => {
+  const message = prompt("Enter post mesage") ;
+
+  if(message.length > 0) {
+    const docRef = doc(db, "posts", id);
+    const payload = { name, description , message };
+  
+    setDoc(docRef, payload);
+    
+  }
+
+  
+
+
+};
   return (
     <div  className="post">
             <div className="post__headr">
                     <Avatar />
                     <div className="post__info">
-                    <h2>{name}</h2>
+                    <h2 >{name}</h2>
                     <p>{description}</p>
+                    
 
                     </div>
                     </div>
@@ -25,11 +55,22 @@ function Posts({ name , description , message }) {
     </div>
 
     <div className="post__buttons">
-
-        <InputOptions  Icon={ThumbUpIcon} color="gray"  title="Like"   />
-        <InputOptions  Icon={ChatIcon} color="gray"  title="Comment"   />
-        <InputOptions  Icon={ShareIcon} color="gray"  title="Send"   />
-        <InputOptions  Icon={SendIcon} color="gray"  title="Share"   />
+      <div className="inputoptions">
+          <ThumbUpIcon className='icon-color'/>
+           <h4>like</h4>   
+      </div>
+      <div className="inputoptions">
+          <ChatIcon className='icon-color'/>
+           <h4>comment</h4>   
+      </div>
+      <div className="inputoptions" onClick={() => handleEdit(value)}>
+          <EditIcon className='icon-color'/>
+           <h4>Edit</h4>   
+      </div>
+      <div className="inputoptions" onClick={() => handleDelete(value)}>
+          <DeleteIcon className='icon-color'/>
+           <h4>Delete</h4>   
+      </div>
     </div>
                               
     </div>
