@@ -25,16 +25,17 @@ function Posts({value, name , description , message }) {
   const handleEdit = async (id) => {
   const message = prompt("Enter post mesage") ;
 
-  if(message.length === 0) {
-    message = "";
+  if(message.length > 0) {
+    const docRef = doc(db, "posts", id);
+    const payload = { name, description , message };
+  
+    setDoc(docRef, payload);
+    
   }
 
   
 
-  const docRef = doc(db, "posts", id);
-  const payload = { name, description , message };
 
-  setDoc(docRef, payload);
 };
   return (
     <div  className="post">
