@@ -17,6 +17,11 @@ function Login() {
 
   const auth = getAuth();
 
+  const setInput = () => {
+    setEmail("ayushprakash111@gmail.com");
+    setPassword("ayush65pra");
+  }
+
   
   const logintapp = (e) => {
     e.preventDefault();
@@ -64,14 +69,14 @@ const register = () => {
 
     <Button type='submit' onClick={logintapp}>Sign In</Button>
 </form>
-
+<Button className="btn-login" onClick={setInput}>Sign in with test credentials</Button>
 
 <p>Not a member?  
     <span className="register_login" onClick={register}>
                Register Now
     </span>
 </p>
-<Button type='submit' onClick={logintapp}></Button>
+
 
 
 </div>
