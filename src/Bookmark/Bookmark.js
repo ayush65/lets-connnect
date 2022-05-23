@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {onSnapshot , collection} from "firebase/firestore"
 import db  from "../firebase"
-import LikedPosts from '../Liked/Likedposts.css';
 import BookmarkPosts from './BookmarkPosts'
 
 function Bookmark() {
