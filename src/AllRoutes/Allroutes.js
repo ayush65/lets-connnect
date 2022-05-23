@@ -8,6 +8,7 @@ import Liked from '../Liked/Liked';
 import Login from "../Login/Login"
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
+import Bookmark from '../Bookmark/Bookmark';
 
 
 
@@ -17,7 +18,18 @@ function Allroutes() {
   return (
     <div>
         <Routes>
-      <Route path="/likedposts" element={ <Liked />}></Route> 
+      <Route path="/bookmark" element={  !user ? (
+          <Login />
+        ): (
+          <Bookmark />
+        )}></Route> 
+      <Route path="/likedposts" element={ 
+        !user ? (
+          <Login />
+        ): (
+          <Liked />
+        )
+      }></Route> 
       <Route path="/" element={ !user ? (
           <Login />
         )  : (

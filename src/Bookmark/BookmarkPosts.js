@@ -1,9 +1,8 @@
 import React from 'react'
-import "../Homepage/Posts/Posts"
 import DeleteIcon from '@mui/icons-material/Delete';
 import Avatar from '@mui/material/Avatar';
 import "../Homepage/Posts/Posts"
-import "./Likedposts.css"
+import "../Liked/Likedposts.css"
 import {
   doc,
   deleteDoc
@@ -11,12 +10,13 @@ import {
 
 import db  from "../firebase"
 
-function LikedPosts({value, name , description , message }) {
 
-    const handleDeleteLikedPosts = async (idle) => {
-        const docRef = doc(db, "liked", idle);
+function BookmarkPosts({value, name , description , message }) {
+    const handleDeleteBookmarkedPosts = async (idle) => {
+        const docRef = doc(db, "bookmark", idle);
         await deleteDoc(docRef);
       };
+
 
   return (
     <div className="posts-alignment">
@@ -38,7 +38,7 @@ function LikedPosts({value, name , description , message }) {
 </div>
 
 <div className="post__buttons">
-<div className="inputoptions" onClick={() => handleDeleteLikedPosts(value)}>
+<div className="inputoptions" onClick={() => handleDeleteBookmarkedPosts(value)}>
   <DeleteIcon className='icon-color'/>
    <h4>Delete</h4>   
 </div>
@@ -50,4 +50,4 @@ function LikedPosts({value, name , description , message }) {
   )
 }
 
-export default LikedPosts
+export default BookmarkPosts
