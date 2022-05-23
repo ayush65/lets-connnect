@@ -6,8 +6,6 @@ import EditIcon from '@mui/icons-material/Edit';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import Avatar from '@mui/material/Avatar';
 import "./Posts.css"
-import { useSelector } from 'react-redux';
-import { selectUser } from '../../features/userSlice';
 
 import {
   doc,
@@ -19,10 +17,6 @@ import db  from "../../firebase"
 import uuid from 'react-uuid';
 
 function Posts({value, name , description , message }) {
-
-  console.log(name)
-
-  const user = useSelector(selectUser);
 
   const [buttonState , setButtonState] = useState(false);
 
