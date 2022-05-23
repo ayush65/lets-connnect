@@ -69,7 +69,7 @@ const register = () => {
     <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' type="email" />
     <input   value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password' type='password' />
 
-    <Button type='submit' onClick={logintapp}>Sign In</Button>
+    <Button type='submit' onClick={logintapp} className="btn-sign-in">Sign In</Button>
 </form>
 <Button  onClick={setInput}>Sign in with test credentials</Button>
 
