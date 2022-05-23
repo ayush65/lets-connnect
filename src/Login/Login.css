@@ -33,7 +33,10 @@
     background-color: #0074b1;
     color: black;
 }
-
+.btn-sign-in:hover{
+    color: black;
+    border: 2px solid lightgrey;
+}
 .login > form > button {
     width: 22.813rem;
     height: 50px;

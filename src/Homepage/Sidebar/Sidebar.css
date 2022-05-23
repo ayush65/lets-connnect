@@ -1,9 +1,10 @@
 .sidebar {
     top: 80px;
     position: sticky;
-    flex: 0.3;
+    flex: 0.4;
     text-align: center;
-    height: fit-content;
+    height: fit-content; 
+    margin-left: -15%;
   }
   
   .side_bar {

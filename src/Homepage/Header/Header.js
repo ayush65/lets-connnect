@@ -1,13 +1,13 @@
 import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
-import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import "./Header.css"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Avatar } from '@mui/material';
 import { Link } from 'react-router-dom';
+import BookmarksIcon from '@mui/icons-material/Bookmarks';
 
 function Header() {
   return (
@@ -34,10 +34,10 @@ function Header() {
     <FavoriteIcon className="text-gray"/>
     <h4>liked</h4>  
     </Link>
-    <div className="inputoptions">
-    <BusinessCenterIcon className="text-gray"/>
-    <h4>Jobs</h4>  
-    </div>
+    <Link className="inputoptions" to="/bookmark">
+    <BookmarksIcon className="text-gray"/>
+    <h4>Bookmarks</h4>  
+    </Link>
     <div className="inputoptions">
     <ChatIcon className="text-gray"/>
     <h4>Chat</h4>  

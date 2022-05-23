@@ -3,34 +3,40 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ChatIcon from '@mui/icons-material/Chat';
 import EditIcon from '@mui/icons-material/Edit';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 import Avatar from '@mui/material/Avatar';
 import "./Posts.css"
 
 import {
   doc,
   deleteDoc,
-  setDoc,
+  setDoc
 } from "firebase/firestore";
-import uuid from 'react-uuid'
 
 import db  from "../../firebase"
+import uuid from 'react-uuid';
 
 function Posts({value, name , description , message }) {
 
   const [buttonState , setButtonState] = useState(false);
+  const [colorButton , setColor] = useState("");
+ const [colorButtonBookmark , setColorBookmark] = useState("");
 
   const handleDelete = async (idle) => {
     const docRef = doc(db, "posts", idle);
     await deleteDoc(docRef);
+
   };
 
+  
   const handleEdit = async (id) => {
   const message = prompt("Enter post mesage") ;
 
   if(message.length > 0) {
     const docRef = doc(db, "posts", id);
     const payload = { name, description , message };
-   setDoc(docRef, payload);  
+  
+    setDoc(docRef, payload);
   }
 };
 
@@ -40,9 +46,19 @@ const sendLikedPost = async ()  =>  {
       name: name,
       description: description,
       message: message ,} ;
-  await setDoc(docRef , payload);  
-};  
+  await setDoc(docRef , payload); 
+  
+}; 
 
+const sendBookmarkPost = async ()  =>  {
+  const docRef = doc(db , "bookmark", uuid());
+  const payload = {
+      name: name,
+      description: description,
+      message: message ,} ;
+  await setDoc(docRef , payload);  
+  
+};  
   return (
     <div  className="post">
             <div className="post__headr">
@@ -61,10 +77,10 @@ const sendLikedPost = async ()  =>  {
     </div>
 
     <div className="post__buttons">
-      <div className="inputoptions"  >
-          <button className='btn-disabled-state' disabled={buttonState} onClick={() =>{ sendLikedPost() ; setButtonState(true)}}><ThumbUpIcon className='icon-color' />
+    <div className="inputoptions" style ={{backgroundColor: colorButton }} onClick={() => setColor(" #B0E0E6")}>
+          <button className='btn-disabled-state'  disabled={buttonState} onClick={() =>{ sendLikedPost() ; setButtonState(true) }}><ThumbUpIcon className='icon-color' />
           </button>  
-          <h4>like</h4> 
+          <button className='btn-disabled-state'  disabled={buttonState} onClick={() =>{ sendLikedPost()  ; setButtonState(true)}}><h4 className='icon-color'>Like</h4></button> 
       </div>
       <div className="inputoptions">
           <ChatIcon className='icon-color'/>
@@ -74,7 +90,13 @@ const sendLikedPost = async ()  =>  {
           <EditIcon className='icon-color'/>
            <h4>Edit</h4>   
       </div>
-      <div className="inputoptions" onClick={() => handleDelete(value)}>
+      <div className="inputoptions" style ={{backgroundColor: colorButtonBookmark}} onClick={() =>setColorBookmark("#B0E0E6")} >
+          <button className='btn-disabled-state' disabled={buttonState} onClick={() =>{ sendBookmarkPost() ; setButtonState(true)}}><BookmarkIcon className='icon-color' />
+          </button>  
+          <button className='btn-disabled-state' disabled={buttonState} onClick={() =>{ sendBookmarkPost() ; setButtonState(true)}}><h4 className='icon-color'>Bookmark</h4></button> 
+      </div>
+      
+      <div className="inputoptions" onClick={() => {handleDelete(value) ; colorButton("") ; colorButtonBookmark("")}}>
           <DeleteIcon className='icon-color'/>
            <h4>Delete</h4>   
       </div>

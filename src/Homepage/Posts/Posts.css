@@ -12,6 +12,7 @@
 .btn-disabled-state{
     background: transparent;
     border: none;
+    cursor: pointer;
 }
 .post__info {
     margin-left: 10px;
