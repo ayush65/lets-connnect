@@ -75,7 +75,7 @@ const sendBookmarkPost = async ()  =>  {
     <div className="inputoptions"  >
           <button className='btn-disabled-state' disabled={buttonState} onClick={() =>{ sendLikedPost() ; setButtonState(true)}}><ThumbUpIcon className='icon-color' />
           </button>  
-          <h4>like</h4> 
+          <button className='btn-disabled-state' disabled={buttonState} onClick={() =>{ sendLikedPost()  ; setButtonState(true)}}><h4 className='icon-color'>Like</h4></button> 
       </div>
       <div className="inputoptions">
           <ChatIcon className='icon-color'/>
@@ -88,7 +88,7 @@ const sendBookmarkPost = async ()  =>  {
       <div className="inputoptions"  >
           <button className='btn-disabled-state' disabled={buttonState} onClick={() =>{ sendBookmarkPost() ; setButtonState(true)}}><BookmarkIcon className='icon-color' />
           </button>  
-          <h4>Bookmark</h4> 
+          <button className='btn-disabled-state' disabled={buttonState} onClick={() =>{ sendBookmarkPost() ; setButtonState(true)}}><h4 className='icon-color'>Bookmark</h4></button> 
       </div>
       <div className="inputoptions" onClick={() => handleDelete(value)}>
           <DeleteIcon className='icon-color'/>
