@@ -1,0 +1,10 @@
+.liked-posts{
+    width:  30%;
+    border: 5px solid lightgrey;
+    padding: 10px;
+    margin:  2rem;
+}
+.liked-post-container{
+    display: flex;
+    flex-direction: row;
+}

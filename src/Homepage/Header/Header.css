@@ -7,8 +7,11 @@
     padding-bottom: 10px;
     width: 100%;
     z-index: 999;
+    height: 5%;
   }
-  
+  .text-gray{
+    color: gray;
+  }
   .header__right {
     display: flex;
   }
@@ -22,7 +25,24 @@
   .header__left {
     display: flex;
   }
-  
+  .inputoptions {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    padding:  10px;
+    cursor: pointer;
+    color: gray;
+    text-decoration: none;
+}
+
+.inputoptions:hover {
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.inputoptions > h4 {
+    margin-left: 5px;
+}
   .header__search {
     padding: 10px;
     margin-right: 20px;

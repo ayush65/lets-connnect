@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ChatIcon from '@mui/icons-material/Chat';
@@ -9,34 +9,40 @@ import "./Posts.css"
 import {
   doc,
   deleteDoc,
-  setDoc
+  setDoc,
 } from "firebase/firestore";
+import uuid from 'react-uuid'
 
 import db  from "../../firebase"
 
 function Posts({value, name , description , message }) {
+
+  const [buttonState , setButtonState] = useState(false);
 
   const handleDelete = async (idle) => {
     const docRef = doc(db, "posts", idle);
     await deleteDoc(docRef);
   };
 
-  
   const handleEdit = async (id) => {
   const message = prompt("Enter post mesage") ;
 
   if(message.length > 0) {
     const docRef = doc(db, "posts", id);
     const payload = { name, description , message };
-  
-    setDoc(docRef, payload);
-    
+   setDoc(docRef, payload);  
   }
-
-  
-
-
 };
+
+const sendLikedPost = async ()  =>  {
+  const docRef = doc(db , "liked", uuid());
+  const payload = {
+      name: name,
+      description: description,
+      message: message ,} ;
+  await setDoc(docRef , payload);  
+};  
+
   return (
     <div  className="post">
             <div className="post__headr">
@@ -55,9 +61,10 @@ function Posts({value, name , description , message }) {
     </div>
 
     <div className="post__buttons">
-      <div className="inputoptions">
-          <ThumbUpIcon className='icon-color'/>
-           <h4>like</h4>   
+      <div className="inputoptions"  >
+          <button className='btn-disabled-state' disabled={buttonState} onClick={() =>{ sendLikedPost() ; setButtonState(true)}}><ThumbUpIcon className='icon-color' />
+          </button>  
+          <h4>like</h4> 
       </div>
       <div className="inputoptions">
           <ChatIcon className='icon-color'/>
