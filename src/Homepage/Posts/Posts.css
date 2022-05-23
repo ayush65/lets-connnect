@@ -9,6 +9,10 @@
     display: flex;
     margin-bottom: 10px;
 }
+.btn-disabled-state{
+    background: transparent;
+    border: none;
+}
 .post__info {
     margin-left: 10px;
 }
@@ -16,6 +20,9 @@
 .post__info  > p {
     font-size: 12px;
     color: gray;
+}
+.icon-color{
+    color : gray;
 }
 
 .post_body  {

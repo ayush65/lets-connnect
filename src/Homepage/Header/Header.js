@@ -1,12 +1,13 @@
 import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
-import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import "./Header.css"
-import HeaderOptions from '../HeaderOptions/HeaderOptions';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Avatar } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
@@ -25,14 +26,32 @@ function Header() {
     </div>
 
     <div className="header__right">
+    <Link className="inputoptions" to="/">
+    <HomeIcon className="text-gray"/>
+    <h4>Home</h4>  
+    </Link>    
+    <Link className="inputoptions" to="/likedposts">
+    <FavoriteIcon className="text-gray"/>
+    <h4>liked</h4>  
+    </Link>
+    <div className="inputoptions">
+    <BusinessCenterIcon className="text-gray"/>
+    <h4>Jobs</h4>  
+    </div>
+    <div className="inputoptions">
+    <ChatIcon className="text-gray"/>
+    <h4>Chat</h4>  
+    </div>
+    <div className="inputoptions">
+    <NotificationsIcon  className="text-gray"/>
+    <h4>Notifications</h4>  
+    </div>
+    <div className="inputoptions">
+    <Avatar  className="text-gray"/>
+    <h4>Me</h4>  
+    </div>
 
-    
-        <HeaderOptions Icon= {HomeIcon } title="Home" />
-        <HeaderOptions Icon= {SupervisorAccountIcon } title="My Network" />
-        <HeaderOptions Icon= {BusinessCenterIcon } title="Jobs" />
-        <HeaderOptions Icon={ChatIcon} title="Messaging" />
-        <HeaderOptions   Icon= {NotificationsIcon } title="Notifications" />
-        <HeaderOptions   avatar="https://media-exp1.licdn.com/dms/image/D5603AQEfy5nowK4bCw/profile-displayphoto-shrink_100_100/0/1640863941821?e=1658361600&v=beta&t=BMwSN35MZ_Q7RU1vMjmdqPqCkd1uy667AvYubjik_C8" title="Me" />          
+        
 </div>
  </div>
   )
