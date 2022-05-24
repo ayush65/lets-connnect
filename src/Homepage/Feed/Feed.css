@@ -10,7 +10,12 @@
     border-radius: 10px;
     margin-bottom: 20px;
 }
-
+.comment-post{
+     width: 75%;
+     border-radius: 10px;
+     border : 1px solid lightgrey;
+     margin-left: 10%;
+}
 .feed_input {
      border: 1px solid lightgrey;
      border-radius: 30px;
