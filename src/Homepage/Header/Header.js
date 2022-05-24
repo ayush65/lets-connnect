@@ -2,7 +2,6 @@ import React from 'react'
 import SearchIcon from '@mui/icons-material/Search';
 import HomeIcon from '@mui/icons-material/Home';
 import ChatIcon from '@mui/icons-material/Chat';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import "./Header.css"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { Avatar } from '@mui/material';
@@ -42,14 +41,10 @@ function Header() {
     <ChatIcon className="text-gray"/>
     <h4>Comments</h4>  
     </Link>
-    <div className="inputoptions">
-    <NotificationsIcon  className="text-gray"/>
-    <h4>Notifications</h4>  
-    </div>
-    <div className="inputoptions">
+    <Link className="inputoptions" to="/user">
     <Avatar  className="text-gray"/>
     <h4>Me</h4>  
-    </div>
+    </Link>
 
         
 </div>

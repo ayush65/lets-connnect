@@ -72,7 +72,7 @@ const sendBookmarkPost = async ()  =>  {
 };  
 
 const sendFollowedUser = async ()  =>  {
-  const docRef = doc(db , "followed", uuid());
+  const docRef = doc(db , "follow", uuid());
   const payload = {
       name: name,
       description: description,} ;

@@ -6,11 +6,24 @@
     height: fit-content; 
     margin-left: -15%;
   }
-  
+
+  .sidebar-placement{
+    width: 50%;
+    margin-left: 10%;
+    margin-top: 2%;
+  }
+  .sidebar-user{
+    width: 100%;
+    color: gray;
+  }
   .side_bar {
     margin-bottom: 10px;
   }
-  
+  .edit-user{
+    position: absolute;
+    right: 3%;
+    top: 3%;
+  }
   .sidebar__top {
     display: flex;
     flex-direction: column;
