@@ -38,10 +38,10 @@ function Header() {
     <BookmarksIcon className="text-gray"/>
     <h4>Bookmarks</h4>  
     </Link>
-    <div className="inputoptions">
+    <Link className="inputoptions" to="/comments">
     <ChatIcon className="text-gray"/>
-    <h4>Chat</h4>  
-    </div>
+    <h4>Comments</h4>  
+    </Link>
     <div className="inputoptions">
     <NotificationsIcon  className="text-gray"/>
     <h4>Notifications</h4>  

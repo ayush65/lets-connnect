@@ -15,6 +15,7 @@ import {
 
 import db  from "../../firebase"
 import uuid from 'react-uuid';
+import { Link } from 'react-router-dom';
 
 function Posts({value, name , description , message }) {
 
@@ -50,12 +51,31 @@ const sendLikedPost = async ()  =>  {
   
 }; 
 
+const sendCommentedPost = async ()  =>  {
+  const docRef = doc(db , "commented", value);
+  const payload = {
+      name: name,
+      description: description,
+      message: message ,} ;
+  await setDoc(docRef , payload); 
+  
+}; 
+
 const sendBookmarkPost = async ()  =>  {
   const docRef = doc(db , "bookmark", uuid());
   const payload = {
       name: name,
       description: description,
       message: message ,} ;
+  await setDoc(docRef , payload);  
+  
+};  
+
+const sendFollowedUser = async ()  =>  {
+  const docRef = doc(db , "followed", uuid());
+  const payload = {
+      name: name,
+      description: description,} ;
   await setDoc(docRef , payload);  
   
 };  
@@ -66,10 +86,10 @@ const sendBookmarkPost = async ()  =>  {
                     <div className="post__info">
                     <h2 >{name}</h2>
                     <p>{description}</p>
-                    
+                    </div>
+                    </div>
 
-                    </div>
-                    </div>
+                    <button className="btn-follow inputoptions"  disabled={buttonState}  onClick={() =>{  sendFollowedUser() ; setButtonState(true)}}>Follow</button>
 
     <div className="post_body">
 
@@ -82,10 +102,10 @@ const sendBookmarkPost = async ()  =>  {
           </button>  
           <button className='btn-disabled-state'  disabled={buttonState} onClick={() =>{ sendLikedPost()  ; setButtonState(true)}}><h4 className='icon-color'>Like</h4></button> 
       </div>
-      <div className="inputoptions">
+      <Link className="inputoptions" onClick={() => sendCommentedPost()} to="/comments">
           <ChatIcon className='icon-color'/>
            <h4>comment</h4>   
-      </div>
+      </Link>
       <div className="inputoptions" onClick={() => handleEdit(value)}>
           <EditIcon className='icon-color'/>
            <h4>Edit</h4>   

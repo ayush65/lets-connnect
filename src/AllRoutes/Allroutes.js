@@ -9,6 +9,7 @@ import Login from "../Login/Login"
 import { useSelector } from 'react-redux';
 import { selectUser } from '../features/userSlice';
 import Bookmark from '../Bookmark/Bookmark';
+import Comment from '../Comment/Comment';
 
 
 
@@ -18,6 +19,11 @@ function Allroutes() {
   return (
     <div>
         <Routes>
+        <Route path="/comments" element={  !user ? (
+          <Login />
+        ): (
+          <Comment />
+        )}></Route>
       <Route path="/bookmark" element={  !user ? (
           <Login />
         ): (

@@ -51,11 +51,9 @@ const sendpost = async (e)  =>  {
        <CreateIcon />
              
              <form>
-             <input  value={ input } onChange={e => setInput(e.target.value)}  type="text" />
+             <input  value={ input } placeholder="Write you post here and press enter for posting" onChange={e => setInput(e.target.value)}  type="text" />
                        <button onClick={sendpost} type="submit">Send</button>
              </form>
-
-
    </div>
    <div className="feed_inputoptions">
              <InputOptions  Icon={PhotoIcon} color="#70B5F9"  title="Photo"   />
