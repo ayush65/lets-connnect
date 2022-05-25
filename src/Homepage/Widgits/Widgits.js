@@ -21,7 +21,7 @@ function Widgits() {
   return (
     <div className="widgits">
     <div className="widgits_header">
-              <h2>Linkedin news</h2>
+              <h2>Lets Connect news</h2>
               <InfoIcon />
     </div>
     {newsArticle("New I Phone 12", "Top news - 9099 readers")}

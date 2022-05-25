@@ -40,13 +40,13 @@ function UsersCard({ name , Bio , value , photoUrl , portfolioUrl}) {
   return (
     <div>
          <div className="sidebar-user">
-        <img src={photoUrl} className='side_bar avatar-sidebar' alt="dp"></img>
+        <img src={photoUrl} className=' avatar-sidebar' alt="dp"></img>
         <h4>Name :- {name}</h4>
         <h4>Bio :- {Bio}</h4>
-        <h1>Portfolio Url  :- {portfolioUrl}</h1>
+        <h3>Portfolio Url  :- {portfolioUrl}</h3>
         <EditIcon  className="edit-user" onClick={() => handleEdit(value)}/>
         </div>
-        <h1>Following</h1>
+        <h2>Following</h2>
         {user.map(({ id , data : {description}})  =>  (
                                        
                                        <Followed
